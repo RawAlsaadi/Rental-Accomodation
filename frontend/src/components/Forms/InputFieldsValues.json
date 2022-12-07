@@ -1,0 +1,129 @@
+{
+    "pricesPageInputSections": {
+        "rentalPrice": {
+            "header": "Basic rental price",
+            "text": "The basic price always applies if no seasonal price has been specified for a period. This means that holidaymakers can always calculate a valid price and you will receive more enquiries and bookings.",
+            "inputs": [
+                {
+                    "label": "Base price per night:",
+                    "value": "basePricePerNight",
+                    "className": "required"
+                },
+                {
+                    "label": "Base price per week:",
+                    "value": "basePricePerWeek",
+                    "className": "required"
+                },
+                {
+                    "label": "Minimum stay:",
+                    "value": "minimumStay"
+                },
+                {
+                    "label": "Preparation time:",
+                    "value": "preperationTime",
+                    "className": "required"
+                }
+            ]
+        },
+        "surcharges": {
+            "header": "Surcharges",
+            "text": "Surcharge per additional person (higher occupancy than standard):",
+            "inputs": [
+                {
+                    "label": "Per night/adult:",
+                    "value": "surchargePerNightAdult",
+                    "className": "required"
+                },
+                {
+                    "label": "Per week/adult:",
+                    "value": "surchargePerWeekAdult",
+                    "className": "required"
+                },
+                {
+                    "label": "Per night/child (0-17 years):",
+                    "value": "surchargePerNightChild",
+                    "className": "required"
+                },
+                {
+                    "label": "Per week/child (0-17 years):",
+                    "value": "surchargePerWeekChild",
+                    "className": "required"
+                },
+                {
+                    "label": "sor up to number of nights",
+                    "value": "surchargeNumOfNights",
+                    "className": "required"
+                },
+                {
+                    "label": "Fixed amount:",
+                    "value": "surchargeFixedAmount",
+                    "className": "required"
+                }
+            ]
+        }
+    },
+
+    "facilitiesPageInputSections": {
+        "accommodationSize": {
+            "header": "size of accommodations",
+            "inputs": [
+                {
+                    "label": "Living space in m2",
+                    "value": "livingSpaceInM",
+                    "className": "required"
+                }
+            ]
+        },
+        "sleepingFacilities": {
+            "header": "Sleeping facilities",
+            "inputs": [
+                {
+                    "label": "Number of all overnight options (beds):",
+                    "value": "numOfBeds",
+                    "className": "required"
+                },
+                {
+                    "label": "Single rooms",
+                    "value": "singleRooms"
+                },
+                {
+                    "label": "Double rooms",
+                    "value": "doubleRooms"
+                },
+                {
+                    "label": "Triple room",
+                    "value": "tripleRooms"
+                },
+                {
+                    "label": "Living room⁄bedroom",
+                    "value": "livingRooms"
+                },
+                {
+                    "label": "Other",
+                    "value": "otherRooms"
+                }
+            ]
+        },
+        "bathrooms": {
+            "header": "Bathrooms and WCs",
+            "inputs": [
+                {
+                    "label": "Bathroom with shower",
+                    "value": "bathroomWithShower"
+                },
+                {
+                    "label": "Bathroom with bathtub",
+                    "value": "bathroomWithTub"
+                },
+                {
+                    "label": "Bathroom with shower and bathtub",
+                    "value": "bathroomWithShowerAndTub"
+                },
+                {
+                    "label": "Guest toilet",
+                    "value": "guestToilet"
+                }
+            ]
+        }
+    }
+}

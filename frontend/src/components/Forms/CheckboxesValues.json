@@ -1,0 +1,180 @@
+{
+    "characteristics": {
+        "furnishings": [
+            {
+                "value": "balcony",
+                "label": "balcony"
+            },
+            {
+                "value": "terrace",
+                "label": "terrace"
+            },
+            {
+                "value": "garage",
+                "label": "garage"
+            },
+            {
+                "value": "garden",
+                "label": "garden"
+            },
+            {
+                "value": "swimmingPool",
+                "label": "swimming pool"
+            },
+            {
+                "value": "fireplace",
+                "label": "fireplace"
+            },
+            {
+                "value": "airCoditioning",
+                "label": "air coditioning"
+            },
+            {
+                "value": "sauna",
+                "label": "sauna"
+            },
+            {
+                "value": "wifi",
+                "label": "wifi"
+            },
+            {
+                "value": "whirlpool",
+                "label": "whirlpool"
+            },
+            {
+                "value": "centralHeating",
+                "label": "central heating"
+            },
+            {
+                "value": "fridge",
+                "label": "fridge"
+            },
+            {
+                "value": "microwave",
+                "label": "microwave"
+            },
+            {
+                "value": "bakingOven",
+                "label": "baking oven"
+            },
+            {
+                "value": "coffeeMachine",
+                "label": "coffee machine"
+            },
+            {
+                "value": "bedding",
+                "label": "bedding"
+            },
+            {
+                "value": "towels",
+                "label": "towels"
+            },
+            {
+                "value": "sunLoungers",
+                "label": "sun loungers"
+            },
+            {
+                "value": "dishwasher",
+                "label": "dishwasher"
+            },
+            {
+                "value": "washingMachine",
+                "label": "washing machine"
+            },
+            {
+                "value": "freezer",
+                "label": "freezer"
+            },
+            {
+                "value": "crib",
+                "label": "crib"
+            },
+            {
+                "value": "babysHighChair",
+                "label": "baby's high chair"
+            },
+            {
+                "value": "bbqGrill",
+                "label": "BBQ grill"
+            },
+            {
+                "value": "wallbox",
+                "label": "wallbox"
+            }
+        ],
+        "suitability": [
+            {
+                "value": "relaxingHoliday",
+                "label": "relaxing holiday"
+            },
+            {
+                "value": "familyHoliday",
+                "label": "family holiday"
+            },
+            {
+                "value": "holidayOnaFarm",
+                "label": "holiday on a farm"
+            },
+            {
+                "value": "holidayResortClub",
+                "label": "holiday resort, club"
+            },
+            {
+                "value": "golfingHoliday",
+                "label": "golfing holiday"
+            },
+            {
+                "value": "culturalAndSightseeingHoliday",
+                "label": "cultural and sightseeing holiday"
+            },
+            {
+                "value": "romanticHoliday",
+                "label": "romantic holiday"
+            },
+            {
+                "value": "holidayForSingles",
+                "label": "holiday for singles"
+            },
+            {
+                "value": "skiingHoliday",
+                "label": "skiing holiday"
+            },
+            {
+                "value": "sportHoliday",
+                "label": "sport holiday"
+            },
+            {
+                "value": "beachHoliday",
+                "label": "beach holiday"
+            },
+            {
+                "value": "cityTrip",
+                "label": "city trip"
+            },
+            {
+                "value": "holidayInTheMountains",
+                "label": "holiday in the mountains"
+            },
+            {
+                "value": "holidayByTheSea",
+                "label": "holiday by the sea"
+            },
+            {
+                "value": "holidayByTheLake",
+                "label": "holiday by the lake"
+            },
+            {
+                "value": "withSeaView",
+                "label": "with sea view"
+            },
+            {
+                "value": "groupAccommodation",
+                "label": "group accommodation"
+            },
+            {
+                "value": "holidayInTheCountry",
+                "label": "holiday in the country"
+            }
+        ]
+    }
+}
