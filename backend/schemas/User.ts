@@ -10,7 +10,8 @@ export const User = list({
       validation: {isRequired: true}, 
     }),
     email: text({ 
-      validation: { isRequired: true },
+      validation: { isRequired: true},
+      isIndexed: 'unique',
       hooks: {
         validateInput: ({ addValidationError, resolvedData, fieldKey }) => {
           const email = resolvedData[fieldKey];

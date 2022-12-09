@@ -5,8 +5,8 @@
   "author": "Raw Moe",
   "license": "MIT",
   "scripts": {
-    "dev": "keystone-next",
-    "seed-data": "keystone-next --seed-data"
+    "dev": "keystone dev",
+    "seed-data": "keystone-6 --seed-data"
   },
   "eslintConfig": {
     "extends": "wesbos/typescript.js",
