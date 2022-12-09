@@ -1,14 +1,26 @@
-import { integer, select, text } from "@keystone-next/fields";
-import { list } from "@keystone-next/keystone/schema";
+import { integer, relationship, select, text } from "@keystone-6/core/fields";
+import { list } from "@keystone-6/core";
+import { allowAll } from '@keystone-6/core/access';
 
 export const Product = list({
   // TODO
   // access:
   fields:{
-    name: text({ isRequired: true }),
+    name: text({ 
+      validation: {isRequired: true}, 
+    }),
     description: text({ 
       ui:{
         displayMode: 'textarea',
+      },
+    }),
+    photo: relationship({
+      ref: 'ProductImage.product',
+      ui: {
+        displayMode: 'cards',
+        cardFields: ['image', 'alText'],
+        inlineCreate: { fields: ['image', 'alText'] },
+        inlineEdit:  { fields: ['image', 'alText'] },
       },
     }),
     status: select({
@@ -26,4 +38,5 @@ export const Product = list({
     price: integer(),
     // TODO: Photo
   },
+  access: allowAll,
 });
