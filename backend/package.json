@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "keystone dev",
-    "seed-data": "keystone-6 --seed-data"
+    "seed-data": "keystone --seed-data"
   },
   "eslintConfig": {
     "extends": "wesbos/typescript.js",

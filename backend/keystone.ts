@@ -1,7 +1,6 @@
 import { createAuth } from '@keystone-6/auth';
 import { config } from '@keystone-6/core';
 import { statelessSessions } from '@keystone-6/core/session';
-// import {withItemData} from '@keystone-6/auth/';
 import { User } from './schemas/User';
 import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
@@ -37,7 +36,7 @@ export default withAuth(config({
     url: databaseURL,
     // TODO: Add data seeding here
     async onConnect(keystone) {
-      console.log('Connected to teh database!');
+      console.log('Connected to the database!');
       if(process.argv.includes('--seed-data')){
         await insertSeedData(keystone);
       }
