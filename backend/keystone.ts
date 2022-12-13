@@ -6,6 +6,7 @@ import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
 import 'dotenv/config';
 import { insertSeedData } from './seed-data';
+import { Listing } from './schemas/Listing';
 
 const databaseURL = process.env.DATABASE_URL || 'mongodb://localhost/keystone-tourist-paradise';
 
@@ -46,6 +47,7 @@ export default withAuth(config({
     User,
     Product,
     ProductImage,
+    Listing,
   }),
   ui: {
     // Show the UI only for people who pass this test

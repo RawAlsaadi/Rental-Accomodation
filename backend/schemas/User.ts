@@ -1,5 +1,5 @@
 import { list } from "@keystone-6/core";
-import { text, password, relationship } from "@keystone-6/core/fields";
+import { text, password, relationship, checkbox } from "@keystone-6/core/fields";
 import { allowAll } from '@keystone-6/core/access';
 
 export const User = list({
@@ -22,6 +22,7 @@ export const User = list({
       }
     }),
     password: password(),
+    // host: checkbox(),
     // TODO, add roles, cart and orders
   },
   access: allowAll,

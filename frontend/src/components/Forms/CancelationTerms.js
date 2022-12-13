@@ -26,6 +26,7 @@ const CancelationTerms = ({ formData, setFormData }) => {
       setText("You will be refunded half of the booking amount minus the cancellation fee, if you cancel the booking at least 7 days before the planned check-in until 12 o’clock midday CET (Central European time). For cancellations which are made less than 7 days before check-in there will be no refund.")
     
     setDisabled(true)
+    setFormData({ ...formData, cancellationType: e.target.innerText })
   }
 
   return (
@@ -33,6 +34,7 @@ const CancelationTerms = ({ formData, setFormData }) => {
       <button onClick={(e) => {
         setDisabled(false)
         setText("Please enter your cancellation policy here ...")
+        setFormData({ ...formData, cancellationType: e.target.innerText })
         }}> Individual </button>
       <button onClick={placeHolderHandler}> Flexible </button>
       <button onClick={placeHolderHandler}> Moderate </button>

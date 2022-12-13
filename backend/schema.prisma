@@ -13,10 +13,11 @@ generator client {
 }
 
 model User {
-  id       String  @id @default(cuid())
-  name     String  @default("")
-  email    String  @unique @default("")
-  password String?
+  id                   String    @id @default(cuid())
+  name                 String    @default("")
+  email                String    @unique @default("")
+  password             String?
+  from_Listing_user_id Listing[] @relation("Listing_user_id")
 }
 
 model Product {
@@ -34,4 +35,16 @@ model ProductImage {
   image   Json?
   altText String   @default("")
   product Product? @relation("Product_photo")
+}
+
+model Listing {
+  id                               String  @id @default(cuid())
+  accomodationName                 String  @default("")
+  accomodationShortDescription     String  @default("")
+  accomodationDetailedtDescription String  @default("")
+  licenceNum                       String  @default("")
+  user_id                          User?   @relation("Listing_user_id", fields: [user_idId], references: [id])
+  user_idId                        String? @map("user_id")
+
+  @@index([user_idId])
 }

@@ -62,7 +62,7 @@ const Prices = ({page, setPage, formData, setFormData}) => {
       placeholder="0"
       value={formData.maximumOccupancy}
       onChange={(e) => {
-        setFormData({ ...formData, maximumOccupancy: e.value })
+        setFormData({ ...formData, maximumOccupancy: e.target.value })
       }}
     />
 

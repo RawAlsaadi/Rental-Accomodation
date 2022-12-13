@@ -8,9 +8,12 @@ const FacilitiesAndAmenities = ({ page, setPage, formData, setFormData, checkbox
 
   const [isValid, setIsValid] = useState(false);
 
-  useEffect(() => 
+  useEffect(() => {
     setIsValid(formData.livingSpaceInM && formData.numOfBeds), 
-      [formData.livingSpaceInM, formData.numOfBeds]);
+      [formData.livingSpaceInM, formData.numOfBeds]
+      
+    console.log(formData)
+  });
 
   const previousOnClick = () => {
     setPage(page - 1)
