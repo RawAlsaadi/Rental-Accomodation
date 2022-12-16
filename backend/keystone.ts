@@ -4,9 +4,12 @@ import { statelessSessions } from '@keystone-6/core/session';
 import { User } from './schemas/User';
 import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
-import 'dotenv/config';
-import { insertSeedData } from './seed-data';
 import { Listing } from './schemas/Listing';
+import { Address } from './schemas/Address';
+import { ListingImage } from './schemas/ListingImage';
+import 'dotenv/config';
+// import { insertSeedData } from './seed-data';
+import { insertSeedFormData } from './seed-data/indexSeedFormData';
 
 const databaseURL = process.env.DATABASE_URL || 'mongodb://localhost/keystone-tourist-paradise';
 
@@ -39,7 +42,7 @@ export default withAuth(config({
     async onConnect(keystone) {
       console.log('Connected to the database!');
       if(process.argv.includes('--seed-data')){
-        await insertSeedData(keystone);
+        await insertSeedFormData(keystone);
       }
     },
   },
@@ -48,6 +51,8 @@ export default withAuth(config({
     Product,
     ProductImage,
     Listing,
+    Address,
+    ListingImage,
   }),
   ui: {
     // Show the UI only for people who pass this test

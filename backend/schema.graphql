@@ -319,7 +319,10 @@ type Listing {
   accomodationShortDescription: String
   accomodationDetailedtDescription: String
   licenceNum: String
-  user_id: User
+  user: User
+  address: Address
+  photo(where: ListingImageWhereInput! = {}, orderBy: [ListingImageOrderByInput!]! = [], take: Int, skip: Int! = 0): [ListingImage!]
+  photoCount(where: ListingImageWhereInput! = {}): Int
 }
 
 input ListingWhereUniqueInput {
@@ -335,7 +338,15 @@ input ListingWhereInput {
   accomodationShortDescription: StringFilter
   accomodationDetailedtDescription: StringFilter
   licenceNum: StringFilter
-  user_id: UserWhereInput
+  user: UserWhereInput
+  address: AddressWhereInput
+  photo: ListingImageManyRelationFilter
+}
+
+input ListingImageManyRelationFilter {
+  every: ListingImageWhereInput
+  some: ListingImageWhereInput
+  none: ListingImageWhereInput
 }
 
 input ListingOrderByInput {
@@ -351,13 +362,28 @@ input ListingUpdateInput {
   accomodationShortDescription: String
   accomodationDetailedtDescription: String
   licenceNum: String
-  user_id: UserRelateToOneForUpdateInput
+  user: UserRelateToOneForUpdateInput
+  address: AddressRelateToOneForUpdateInput
+  photo: ListingImageRelateToManyForUpdateInput
 }
 
 input UserRelateToOneForUpdateInput {
   create: UserCreateInput
   connect: UserWhereUniqueInput
   disconnect: Boolean
+}
+
+input AddressRelateToOneForUpdateInput {
+  create: AddressCreateInput
+  connect: AddressWhereUniqueInput
+  disconnect: Boolean
+}
+
+input ListingImageRelateToManyForUpdateInput {
+  disconnect: [ListingImageWhereUniqueInput!]
+  set: [ListingImageWhereUniqueInput!]
+  create: [ListingImageCreateInput!]
+  connect: [ListingImageWhereUniqueInput!]
 }
 
 input ListingUpdateArgs {
@@ -370,12 +396,123 @@ input ListingCreateInput {
   accomodationShortDescription: String
   accomodationDetailedtDescription: String
   licenceNum: String
-  user_id: UserRelateToOneForCreateInput
+  user: UserRelateToOneForCreateInput
+  address: AddressRelateToOneForCreateInput
+  photo: ListingImageRelateToManyForCreateInput
 }
 
 input UserRelateToOneForCreateInput {
   create: UserCreateInput
   connect: UserWhereUniqueInput
+}
+
+input AddressRelateToOneForCreateInput {
+  create: AddressCreateInput
+  connect: AddressWhereUniqueInput
+}
+
+input ListingImageRelateToManyForCreateInput {
+  create: [ListingImageCreateInput!]
+  connect: [ListingImageWhereUniqueInput!]
+}
+
+type Address {
+  id: ID!
+  streetNum: Int
+  postalCode: String
+  townName: String
+  country: String
+}
+
+input AddressWhereUniqueInput {
+  id: ID
+}
+
+input AddressWhereInput {
+  AND: [AddressWhereInput!]
+  OR: [AddressWhereInput!]
+  NOT: [AddressWhereInput!]
+  id: IDFilter
+  streetNum: IntFilter
+  postalCode: StringFilter
+  townName: StringFilter
+  country: StringFilter
+}
+
+input IntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: IntFilter
+}
+
+input AddressOrderByInput {
+  id: OrderDirection
+  streetNum: OrderDirection
+  postalCode: OrderDirection
+  townName: OrderDirection
+  country: OrderDirection
+}
+
+input AddressUpdateInput {
+  streetNum: Int
+  postalCode: String
+  townName: String
+  country: String
+}
+
+input AddressUpdateArgs {
+  where: AddressWhereUniqueInput!
+  data: AddressUpdateInput!
+}
+
+input AddressCreateInput {
+  streetNum: Int
+  postalCode: String
+  townName: String
+  country: String
+}
+
+type ListingImage {
+  id: ID!
+  image: CloudinaryImage_File
+  altText: String
+}
+
+input ListingImageWhereUniqueInput {
+  id: ID
+}
+
+input ListingImageWhereInput {
+  AND: [ListingImageWhereInput!]
+  OR: [ListingImageWhereInput!]
+  NOT: [ListingImageWhereInput!]
+  id: IDFilter
+  altText: StringFilter
+}
+
+input ListingImageOrderByInput {
+  id: OrderDirection
+  altText: OrderDirection
+}
+
+input ListingImageUpdateInput {
+  image: Upload
+  altText: String
+}
+
+input ListingImageUpdateArgs {
+  where: ListingImageWhereUniqueInput!
+  data: ListingImageUpdateInput!
+}
+
+input ListingImageCreateInput {
+  image: Upload
+  altText: String
 }
 
 """
@@ -408,6 +545,18 @@ type Mutation {
   updateListings(data: [ListingUpdateArgs!]!): [Listing]
   deleteListing(where: ListingWhereUniqueInput!): Listing
   deleteListings(where: [ListingWhereUniqueInput!]!): [Listing]
+  createAddress(data: AddressCreateInput!): Address
+  createAddresses(data: [AddressCreateInput!]!): [Address]
+  updateAddress(where: AddressWhereUniqueInput!, data: AddressUpdateInput!): Address
+  updateAddresses(data: [AddressUpdateArgs!]!): [Address]
+  deleteAddress(where: AddressWhereUniqueInput!): Address
+  deleteAddresses(where: [AddressWhereUniqueInput!]!): [Address]
+  createListingImage(data: ListingImageCreateInput!): ListingImage
+  createListingImages(data: [ListingImageCreateInput!]!): [ListingImage]
+  updateListingImage(where: ListingImageWhereUniqueInput!, data: ListingImageUpdateInput!): ListingImage
+  updateListingImages(data: [ListingImageUpdateArgs!]!): [ListingImage]
+  deleteListingImage(where: ListingImageWhereUniqueInput!): ListingImage
+  deleteListingImages(where: [ListingImageWhereUniqueInput!]!): [ListingImage]
   endSession: Boolean!
   authenticateUserWithPassword(email: String!, password: String!): UserAuthenticationWithPasswordResult
   createInitialUser(data: CreateInitialUserInput!): UserAuthenticationWithPasswordSuccess!
@@ -443,6 +592,12 @@ type Query {
   listings(where: ListingWhereInput! = {}, orderBy: [ListingOrderByInput!]! = [], take: Int, skip: Int! = 0): [Listing!]
   listing(where: ListingWhereUniqueInput!): Listing
   listingsCount(where: ListingWhereInput! = {}): Int
+  addresses(where: AddressWhereInput! = {}, orderBy: [AddressOrderByInput!]! = [], take: Int, skip: Int! = 0): [Address!]
+  address(where: AddressWhereUniqueInput!): Address
+  addressesCount(where: AddressWhereInput! = {}): Int
+  listingImages(where: ListingImageWhereInput! = {}, orderBy: [ListingImageOrderByInput!]! = [], take: Int, skip: Int! = 0): [ListingImage!]
+  listingImage(where: ListingImageWhereUniqueInput!): ListingImage
+  listingImagesCount(where: ListingImageWhereInput! = {}): Int
   keystone: KeystoneMeta!
   authenticatedItem: AuthenticatedItem
 }

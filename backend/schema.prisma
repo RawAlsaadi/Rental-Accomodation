@@ -13,11 +13,11 @@ generator client {
 }
 
 model User {
-  id                   String    @id @default(cuid())
-  name                 String    @default("")
-  email                String    @unique @default("")
-  password             String?
-  from_Listing_user_id Listing[] @relation("Listing_user_id")
+  id                String    @id @default(cuid())
+  name              String    @default("")
+  email             String    @unique @default("")
+  password          String?
+  from_Listing_user Listing[] @relation("Listing_user")
 }
 
 model Product {
@@ -38,13 +38,33 @@ model ProductImage {
 }
 
 model Listing {
-  id                               String  @id @default(cuid())
-  accomodationName                 String  @default("")
-  accomodationShortDescription     String  @default("")
-  accomodationDetailedtDescription String  @default("")
-  licenceNum                       String  @default("")
-  user_id                          User?   @relation("Listing_user_id", fields: [user_idId], references: [id])
-  user_idId                        String? @map("user_id")
+  id                               String         @id @default(cuid())
+  accomodationName                 String         @default("")
+  accomodationShortDescription     String         @default("")
+  accomodationDetailedtDescription String         @default("")
+  licenceNum                       String         @default("")
+  user                             User?          @relation("Listing_user", fields: [userId], references: [id])
+  userId                           String?        @map("user")
+  address                          Address?       @relation("Listing_address", fields: [addressId], references: [id])
+  addressId                        String?        @map("address")
+  photo                            ListingImage[] @relation("Listing_photo")
 
-  @@index([user_idId])
+  @@index([userId])
+  @@index([addressId])
+}
+
+model Address {
+  id                   String    @id @default(cuid())
+  streetNum            Int
+  postalCode           String    @default("")
+  townName             String    @default("")
+  country              String
+  from_Listing_address Listing[] @relation("Listing_address")
+}
+
+model ListingImage {
+  id                 String    @id @default(cuid())
+  image              Json?
+  altText            String    @default("")
+  from_Listing_photo Listing[] @relation("Listing_photo")
 }

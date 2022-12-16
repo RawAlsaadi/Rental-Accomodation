@@ -1,4 +1,4 @@
-import { integer, relationship, select, text } from "@keystone-6/core/fields";
+import { relationship, text } from "@keystone-6/core/fields";
 import { list } from "@keystone-6/core";
 import { allowAll } from '@keystone-6/core/access';
 
@@ -8,7 +8,18 @@ export const Listing = list({
     accomodationShortDescription: text( {validation: {isRequired: true}} ),
     accomodationDetailedtDescription: text( {validation: {isRequired: true}} ),
     licenceNum: text( {validation: {isRequired: true}} ),
-    user_id: relationship({ ref: 'User' }),
+    user: relationship({ ref: 'User' }),
+    address: relationship({ ref: 'Address' }),
+    photo: relationship({
+      ref: 'ListingImage',
+      many: true,
+      ui: {
+        displayMode: 'cards',
+        cardFields: ['image'],
+        inlineCreate: { fields: ['image'] },
+        inlineEdit:  { fields: ['image'] },
+      },
+    }),
 
     // // const/enum
     // accomodationType: select({
@@ -23,20 +34,6 @@ export const Listing = list({
     //     { value: "hotel", label: "Hotel" },
     //     { value: "boarding-house", label: "Boarding house" },
     //     { value: "house-boat", label: "House boat" }
-    //   ]
-    // }),
-    // // listing address table
-    // streetNum: integer( {validation: {isRequired: true}} ),
-    // postalCode: text( {validation: {isRequired: true}} ),
-    // townName: text( {validation: {isRequired: true}} ),
-    // country: select({
-    //   validation: {isRequired: true},
-    //   options: [
-    //     { value: "GB", label: "United Kingdom" },
-    //     { value: "IE", label: "Ireland" },
-    //     { value: "IT", label: "Italy" },
-    //     { value: "NL", label: "Netherlands" },
-    //     { value: "SE", label: "Sweden" }
     //   ]
     // }),
 
