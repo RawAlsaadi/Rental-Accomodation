@@ -7,39 +7,27 @@ function timestamp() {
 
 export const listings = [
     {
+        accomodationType: "holiday-home",
         accomodationName: "name100",
         accomodationShortDescription: "bla100",
         accomodationDetailedtDescription: "bla100",
-        licenceNum: "100"
+        licenceNum: "100",
     },
     {
+        accomodationType: "bed-and-breakfast",
         accomodationName: "name200",
         accomodationShortDescription: "bla200",
         accomodationDetailedtDescription: "bla200",
-        licenceNum: "200"
+        licenceNum: "200",
     },
     {
+        accomodationType: "castle",
         accomodationName: "name300",
         accomodationShortDescription: "bla300",
         accomodationDetailedtDescription: "bla300",
-        licenceNum: "300"
+        licenceNum: "300",
     },
 
-//   "streetNum": 5465464,
-//   "postalCode": "hrhrdjhtrj",
-//   "townName": "hhtrhrh",
-//   "country": "GB",
-//   "livingSpaceInM": 1,
-//   "numOfBeds": 1,
-//   "singleRooms": 1,
-//   "doubleRooms": 1,
-//   "tripleRooms": 1,
-//   "livingRooms": 1,
-//   "otherRooms": 1,
-//   "bathroomWithShower": 1,
-//   "bathroomWithTub": 1,
-//   "bathroomWithShowerAndTub": 1,
-//   "guestToilet": 1,
 //   "companyName": "Invest Ottawa",
 //   "title": "mr",
 //   "firstName": "raw",

@@ -17,15 +17,10 @@ export async function insertSeedFormData({ prisma }: KeystoneContext) {
         addresses[i]
     })
 
-    console.log("------------------------")
-    console.log("here")
-
     const createPhoto = await prisma.listingImage.createMany({
       data: 
         photos[i]
     })
-    console.log("------------------------")
-    console.log(createPhoto)
 
     // @ts-ignore
     listings[i].userId = createdUser.id
